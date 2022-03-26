@@ -1,0 +1,77 @@
+#
+# A couple of useful guides & docs:
+#
+# - Main Bitrise CLI docs: https://github.com/bitrise-io/bitrise/tree/master/_docs
+# - Step Development Guideline: https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
+# - Bitrise.yml format spec: https://github.com/bitrise-io/bitrise/blob/master/_docs/bitrise-yml-format-spec.md
+# - Bitrise docs: http://devcenter.bitrise.io/
+# - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
+
+title: |-
+  mobile.dev Upload
+summary: |
+  Uploads your app binary to mobile.dev.
+description: |
+  Uploads your app binary to mobile.dev.
+website: https://github.com/mobile-dev-inc/bitrise-step-mobile-dev-upload
+source_code_url: https://github.com/mobile-dev-inc/bitrise-step-mobile-dev-upload
+support_url: https://github.com/mobile-dev-inc/bitrise-step-mobile-dev-upload/issues
+host_os_tags:
+  - osx-10.10
+  - ubuntu-16.04
+
+project_type_tags:
+  - ios
+  - android
+  - react-native
+  - cordova
+  - ionic
+
+type_tags:
+  - test
+
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+run_if: ""
+
+deps:
+  brew:
+  - name: git
+  - name: wget
+  - name: node
+  apt_get:
+  - name: git
+  - name: wget
+  - name: node
+
+toolkit:
+  bash:
+    entry_file: step.sh
+
+
+inputs:
+- api_key: ""
+  opts:
+    title: "API Key"
+    summary: mobile.dev API key
+    description: |
+      mobile.dev API key
+    is_expand: true
+    is_required: true
+- app_file: ""
+  opts:
+    title: "App File"
+    summary: iOS or Android app file.
+    description: |
+      **Android**: `app_file` should point to an x86 compatible APK file. **iOS**: `app_file` should point to an x86 compatible Simulator build packaged in a zip archive.
+    is_expand: true
+    is_required: true
+- mapping_file: ""
+  opts:
+    title: "Proguard Mapping File (Android Only)"
+    summary: Android Proguard mapping file.
+    description: |
+      Android only. Include the Proguard mapping file to deobfuscate Android performance traces.
+    is_expand: true
+    is_required: false
