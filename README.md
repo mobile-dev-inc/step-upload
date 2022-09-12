@@ -5,7 +5,7 @@ Upload your app to mobile.dev for analysis.
 # Android
 
 ```yaml
-- git::https://github.com/mobile-dev-inc/step-upload.git@master:
+- git::https://github.com/mobile-dev-inc/step-upload.git@1.0.1:
     inputs:
       - api_key: "$MOBILE_DEV_API_KEY"
       - app_file: "$BITRISE_APK_PATH"
@@ -18,7 +18,7 @@ Upload your app to mobile.dev for analysis.
 Include the Proguard mapping file to deobfuscate Android performance traces:
 
 ```yaml
-- git::https://github.com/mobile-dev-inc/step-upload.git@master:
+- git::https://github.com/mobile-dev-inc/step-upload.git@1.0.1:
     inputs:
       - api_key: "$MOBILE_DEV_API_KEY"
       - app_file: "$BITRISE_APK_PATH"
@@ -28,7 +28,7 @@ Include the Proguard mapping file to deobfuscate Android performance traces:
 # iOS
 
 ```yaml
-- git::https://github.com/mobile-dev-inc/step-upload.git@master:
+- git::https://github.com/mobile-dev-inc/step-upload.git@1.0.1:
     inputs:
       - api_key: "$MOBILE_DEV_API_KEY"
       - app_file: "$BITRISE_APP_DIR_PATH"
